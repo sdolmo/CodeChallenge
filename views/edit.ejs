@@ -1,0 +1,13 @@
+<% include ./partials/header %>
+
+<div class="container">
+  <h1>Edit <%= person.name %>'s City</h1>
+
+  <form action="/people/<%= person.id %>?_method=PUT" method="post">
+    <h2>Favorite City:</h2> <input type="text" name="person[favoriteCity]" value="<%= person.favoriteCity %>">
+    <button id="li-btn">Submit</button>
+  </form>
+  <a id="back-btn" href="/people"><img src="/images/arrow.svg">Go back</a>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,12 @@
+<% include ./partials/header %>
+
+<div class="container">
+  <h1><%= person.name %>'s Profile</h1>
+  <div class="content">
+    <h2><b>Name:</b> <%= person.name %></h2>
+    <h2><b>Favorite City:</b> <%= person.favoriteCity %></h2>
+  </div>
+  <a id="back-btn" href="/people"><img src="/images/arrow.svg">Go back</a>
+</div>
+
+<% include ./partials/footer %>
