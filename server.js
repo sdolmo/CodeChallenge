@@ -17,7 +17,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
-
+var peopleCount = people.length;
 
 app.get('/', function(req, res) {
   res.render('index')
@@ -25,6 +25,7 @@ app.get('/', function(req, res) {
 
 app.get('/people', function(req, res) {
   console.log("GET From SERVER");
+  console.log(peopleCount);
   res.render('people', {people: people});
 });
 
@@ -33,9 +34,10 @@ app.post('/people', function(req, res) {
     res.statusCode = 404;
     return res.send('Error 404: No quote found');
   }
+    peopleCount += 1
     var name = req.body.name;
     var city = req.body.city;
-    var id = people.length + 1;
+    var id = '' + (peopleCount);
     var newPerson = {name: name, favoriteCity: city, id: id};
     console.log(newPerson);
     people.push(newPerson);
@@ -45,29 +47,34 @@ app.post('/people', function(req, res) {
 app.get('/people/:id', function(req, res) {
   if(req.params.id < 0) {
   res.statusCode = 404;
-  return res.send('Error 404: No quote found');
+  return res.send('Error 404: Not found');
   };
-  var query = req.params.id - 1;
-  var person = people[query];
+  console.log(req.params.id);
+  var person = people.find(person => person.id === req.params.id);
   res.render('show', {person: person});
 });
 
 app.get('/people/:id/edit', function(req, res) {
-  var id = req.params.id - 1;
-  var person = people[id];
+  var person = people.find(person => person.id === req.params.id);
+  console.log(req.params.id);
+  console.log(person);
   res.render('edit', {person: person});
 });
 
 app.put('/people/:id', function(req, res) {
   if(req.params.id < 0) {
     res.statusCode = 404;
-  return res.send('Error 404: No quote found');
+  return res.send('Error 404: Not found');
   };
-  var positionInArray = req.params.id - 1;
-  req.body.person.id = req.params.id;
-  req.body.person.name = people[positionInArray].name;
-  console.log(req.body.person);
-  people.splice(positionInArray, 1, req.body.person);
+  var person = people.find(person => person.id === req.params.id)
+  var name = person.name;
+  var city = req.body.city;
+  var id = person.id;
+  var editedPerson = { name: name, favoriteCity: city, id: id };
+  console.log(editedPerson);
+  var positionInArray = people.indexOf(person)
+  people.splice(positionInArray, 1, editedPerson);
+  console.log(people);
   res.redirect("/people");
 });
 
@@ -75,10 +82,13 @@ app.delete('/people/:id', function(req, res) {
   // find the value you're looking for with the id
   var person = people.find(person => person.id === req.params.id);
   console.log(person);
-  // get the index of that value in people
+  console.log(req.params.id);
+  console.log(typeof req.params.id);
+  console.log(people);
+  // // get the index of that value in people
   var positionInArray = people.indexOf(person)
   console.log(positionInArray);
-  // then remove it
+  // // then remove it
   people.splice(positionInArray, 1);
   console.log(people);
   res.redirect('/people');

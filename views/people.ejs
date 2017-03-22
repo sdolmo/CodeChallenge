@@ -9,9 +9,6 @@
         <p><%= person.name %>:</p>
         <a id="li-btn" href='/people/<%= person.id %>/edit'>Edit</a>
         <a id="li-btn" href='/people/<%= person.id %>'>View</a>
-        <form action='/people/<%= person.id %>?_method=DELETE' method="POST">
-          <button id="li-btn">Delete</button>
-        </form>
       </li>
     <%})%>
 
