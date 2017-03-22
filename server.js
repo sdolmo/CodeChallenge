@@ -25,7 +25,6 @@ app.get('/', function(req, res) {
 
 app.get('/people', function(req, res) {
   console.log("GET From SERVER");
-  console.log(peopleCount);
   res.render('people', {people: people});
 });
 
@@ -39,7 +38,6 @@ app.post('/people', function(req, res) {
     var city = req.body.city;
     var id = '' + (peopleCount);
     var newPerson = {name: name, favoriteCity: city, id: id};
-    console.log(newPerson);
     people.push(newPerson);
     res.redirect("/people")
 });
@@ -49,15 +47,12 @@ app.get('/people/:id', function(req, res) {
   res.statusCode = 404;
   return res.send('Error 404: Not found');
   };
-  console.log(req.params.id);
   var person = people.find(person => person.id === req.params.id);
   res.render('show', {person: person});
 });
 
 app.get('/people/:id/edit', function(req, res) {
   var person = people.find(person => person.id === req.params.id);
-  console.log(req.params.id);
-  console.log(person);
   res.render('edit', {person: person});
 });
 
@@ -71,23 +66,16 @@ app.put('/people/:id', function(req, res) {
   var city = req.body.city;
   var id = person.id;
   var editedPerson = { name: name, favoriteCity: city, id: id };
-  console.log(editedPerson);
   var positionInArray = people.indexOf(person)
   people.splice(positionInArray, 1, editedPerson);
-  console.log(people);
   res.redirect("/people");
 });
 
 app.delete('/people/:id', function(req, res) {
   // find the value you're looking for with the id
   var person = people.find(person => person.id === req.params.id);
-  console.log(person);
-  console.log(req.params.id);
-  console.log(typeof req.params.id);
-  console.log(people);
   // // get the index of that value in people
   var positionInArray = people.indexOf(person)
-  console.log(positionInArray);
   // // then remove it
   people.splice(positionInArray, 1);
   console.log(people);

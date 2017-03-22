@@ -130,19 +130,19 @@ input:hover, input:focus {
 }
 
 .slideshow li:nth-child(2) {
-  background-image: url('../images/steven-lewis-342.jpg');
+  background-image: url('../images/steven-lewis-342-min.jpg');
   animation-delay: 1s;
 }
 .slideshow li:nth-child(3) {
-  background-image: url('../images/anna-dziubinska-348.jpg');
+  background-image: url('../images/anna-dziubinska-348-min.jpg');
   animation-delay: 10s;
 }
 .slideshow li:nth-child(4) {
-  background-image: url('../images/thomas-lefebvre-20957.jpg');
+  background-image: url('../images/thomas-lefebvre-20957-min.jpg');
   animation-delay: 20s;
 }
 .slideshow li:nth-child(5) {
-  background-image: url('../images/matthew-henry-6205.jpg');
+  background-image: url('../images/matthew-henry-6205-min.jpg');
   animation-delay: 30s;
 }
 

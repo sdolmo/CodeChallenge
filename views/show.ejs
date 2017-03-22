@@ -1,15 +1,15 @@
 <% include ./partials/header %>
 
-<div class="container">
-  <h1><%= person.name %>'s Profile</h1>
-  <div class="content">
-    <h2><b>Name:</b> <%= person.name %></h2>
-    <h2><b>Favorite City:</b> <%= person.favoriteCity %></h2>
-    <form action='/people/<%= person.id %>?_method=DELETE' method="POST">
-      <button id="li-btn">Delete</button>
-    </form>
+<div class="edit-img">
+  <div class="container edit-box">
+    <h1><%= person.name %>'s Profile</h1>
+    <div class="content">
+      <h2><b>Name:</b> <%= person.name %></h2>
+      <h2><b>Favorite City:</b> <%= person.favoriteCity %></h2>
+      <form action='/people/<%= person.id %>?_method=DELETE' method="POST">
+        <button id="li-btn">Delete</button>
+      </form>
+    </div>
+    <a id="back-btn" href="/people"><img src="/images/arrow.svg">Go back</a>
   </div>
-  <a id="back-btn" href="/people"><img src="/images/arrow.svg">Go back</a>
 </div>
-
-<% include ./partials/footer %>
