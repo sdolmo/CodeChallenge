@@ -13,6 +13,12 @@ Technologies used in this application:
 * [EJS](http://ejs.co/) - Client side templating
 * [Bootstrap](http://getbootstrap.com/) - Responsive design
 
+## Improvements
+
+* Add a database(MongoDB/SQL*)
+* Improve User Experience
+* Refactor Styling and Server side code
+
 ## Author
 
 Designed and built by [Sylvia Dolmo](https://twitter.com/SylviaDolmo)

@@ -123,6 +123,11 @@ li a, li form {
   color: #fff;
 }
 
+.add {
+	position: absolute;
+	left: 47%;
+}
+
 #back-btn {
   display: inline-block;
   color: #000;
