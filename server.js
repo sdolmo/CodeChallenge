@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
+app.set('port', process.env.PORT || 8080);
 
 var peopleCount = people.length;
 
@@ -82,6 +83,6 @@ app.delete('/people/:id', function(req, res) {
   res.redirect('/people');
 });
 
-app.listen(3000, function(){
-  console.log("it's RUNNING!");
+app.listen(app.get("port"), function(){
+  console.log("Running the App");
 });
