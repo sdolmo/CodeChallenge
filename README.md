@@ -1,6 +1,6 @@
 # TTP Code Challenge
 
-The Peeps in The City web applications makes requests to an express server and renders the views using ejs. Users are able to post, update, view, and delete people. Download the app and checkout the code base, or view the live demo below.
+The Peeps in The City web applications makes requests to an express server and renders the views using ejs. Users are able to post, update, view, and delete people. Download this repo and checkout the code base, or view the live demo below.
 
 ## Demo
 
